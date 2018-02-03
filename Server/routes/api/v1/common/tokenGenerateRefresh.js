@@ -49,6 +49,12 @@ var tokenStoreClient 	= require(appRootPath + "/Server/plugins/TokenStore/TokenS
 				var decodeToken = jwt.decode(tokenWithOutBearer, secret);
 				tokenStoreClient.get(decodeToken.email, function(err, tokenFromRedis){
 					var isequal = _.isEqual(tokenWithOutBearer, tokenFromRedis);
+					var decodeOldToken = jwt.decode(tokenFromRedis, secret);
+					var expireTimeInMillSec = decodeOldToken.expireTime;
+					var nowInMillisec = new Date().getTime();
+					if(expireTimeInMillSec < nowInMillisec){
+						return res.status(400).send({reason : "Token expired."});
+					}
 					if(isequal){
 						var tokenData = {
 							email : decodeToken.email
