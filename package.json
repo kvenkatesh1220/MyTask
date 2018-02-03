@@ -1,0 +1,27 @@
+{
+  "name": "MyTest",
+  "description": "MyTest",
+  "version": "0.1.0",
+  "author": "Venkatesh",
+  "license": "",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "JSONPath": "^0.11.2",
+    "bluebird": "^3.5.1",
+    "body-parser": "^1.14.0",
+    "express": "^4.13.3",
+    "express-bearer-token": "^2.1.0",
+    "fs-extra": "^4.0.1",
+    "jwt-simple": "^0.5.0",
+    "lodash": "^4.3.0",
+    "mongodb": "^3.0.1",
+    "mongoose": "^5.0.3",
+    "redis": "^2.6.3",
+    "request": "^2.79.0",
+    "request-promise": "^4.2.1",
+    "moment": "^2.6.0"
+  },
+  "devDependencies": {}
+}
